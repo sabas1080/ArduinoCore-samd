@@ -131,13 +131,19 @@ extern "C"
  * The RX and TX LEDs are not present.
  * You may optionally add them to any free pins.
  */
-#define PIN_LED_13           (34u)
-#define PIN_LED_RXL          (22u)
-#define PIN_LED_TXL          (23u)
+#define PIN_LED_13           (22u)
+//#define PIN_LED_RXL          (22u)
+//#define PIN_LED_TXL          (23u)
 #define PIN_LED              PIN_LED_13
 #define PIN_LED2             PIN_LED_RXL
 #define PIN_LED3             PIN_LED_TXL
 #define LED_BUILTIN          PIN_LED_13
+
+#define RFM_RST              (15u)
+#define RFM_DIO0             (33u)
+#define RFM_DIO1             (11u)
+#define RFM_DIO2             (12u)
+#define RFM_DIO5             (50u)
 
 /* Buttons
  * Note that Button is connected to Reset by default.
@@ -145,8 +151,8 @@ extern "C"
  * There is a debouncing capacitor connected, so delay reading the pin for
  * at least 45ms after turning on the pullup to allow the capacitor to charge.
  */
-#define BUTTON               (33u)
-#define BUTTON_BUILTIN       BUTTON
+//#define BUTTON               (33u)
+//#define BUTTON_BUILTIN       BUTTON
 
 
 /*
@@ -266,7 +272,7 @@ static const uint8_t ATN = PIN_ATN;
 #define PAD_SERIAL3_TX       (UART_TX_PAD_0)
 #define PAD_SERIAL3_RX       (SERCOM_RX_PAD_1)
 
-#define SERCOM_INSTANCE_SERIAL3       &sercom4
+#define SERCOM_INSTANCE_SERIAL3       &sercom2
 
 
 /*
@@ -289,13 +295,13 @@ static const uint8_t ATN = PIN_ATN;
 #define PAD_SPI_RX           SERCOM_RX_PAD_3
 #else
 #define PIN_SPI_MISO         (43u)
-#define PIN_SPI_MOSI         (45u)
-#define PIN_SPI_SCK          (44u)
+#define PIN_SPI_MOSI         (51u)
+#define PIN_SPI_SCK          (52u)
 #define PIN_SPI_SS           (46u)
 #define PAD_SPI_TX           SPI_PAD_2_SCK_3
 #define PAD_SPI_RX           SERCOM_RX_PAD_0
 #endif
-#define PERIPH_SPI           sercom5
+#define PERIPH_SPI           sercom4
 
 static const uint8_t SS   = PIN_SPI_SS ;        // The SERCOM SS PAD is available on this pin but HW SS isn't used. Set here only for reference.
 static const uint8_t MOSI = PIN_SPI_MOSI ;
